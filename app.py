@@ -41,8 +41,11 @@ if app_mode == "Student Performance Predictor":
     internet = st.selectbox("Internet Access at Home?", ["yes", "no"], index=0)
     romantic = st.selectbox("In a Romantic Relationship?", ["yes", "no"], index=1)
 
-    # Clean Synthetic Baseline DataFrame containing all 32 required features
-    # This prevents the model from locking onto static historical row data while satisfying pipeline constraints.
+    # Dynamic sliders for past grades
+    g1 = st.slider("First Period Grade (G1)", 0, 20, 10)
+    g2 = st.slider("Second Period Grade (G2)", 0, 20, 10)
+
+    # Input DataFrame using all your slider variables
     input_data = pd.DataFrame({
         'school': ['GP'],
         'sex': ['F'],
@@ -50,10 +53,10 @@ if app_mode == "Student Performance Predictor":
         'address': ['U'],
         'famsize': ['GT3'],
         'Pstatus': ['T'],
-        'Medu': [2],
-        'Fedu': [2],
-        'Mjob': ['other'],
-        'Fjob': ['other'],
+        'medu': [2],
+        'fedu': [2],
+        'mjob': ['other'],
+        'fjob': ['other'],
         'reason': ['course'],
         'guardian': ['mother'],
         'traveltime': [1],
@@ -70,14 +73,13 @@ if app_mode == "Student Performance Predictor":
         'famrel': [4],
         'freetime': [freetime],
         'goout': [goout],
-        'Dalc': [1],
-        'Walc': [1],
+        'dalc': [1],
+        'walc': [1],
         'health': [health],
         'absences': [absences],
-        'G1': [10],
-        'G2': [10]
+        'G1': [g1],
+        'G2': [g2]
     })
-
     if st.button("Predict My Final Grade"):
         pred_score = pipeline.predict(input_data)[0]
         st.success(f"### Predicted Final Grade (G3): **{pred_score:.1f} / 20**")
