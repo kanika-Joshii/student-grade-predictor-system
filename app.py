@@ -82,7 +82,7 @@ if app_mode == "Student Performance Predictor":
     })
     if st.button("Predict My Final Grade"):
         pred_score = pipeline.predict(input_data)[0]
-        st.success(f"### Predicted Final Grade (G3): **{pred_score:.1f} / 20**")
+        st.success(f"Estimated Final Grade: {pred_score:.2f} / 20")
 
         # Personalized study advice based on prediction logic
         if pred_score < 10:
