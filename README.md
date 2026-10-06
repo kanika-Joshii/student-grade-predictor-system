@@ -46,7 +46,7 @@ student-grade-predictor-system/
 └── README.md                   # Project documentation
 
 Key Highlights & Insights
-Analyzed behavioral attributes such as weekly study hours, past class failures, absences, and social habits.
+Analyzed behavioral attributes such as weekly study hours, past class failures, absences, and social habits and the first , second grade.
 
 Built robust data preprocessing pipelines to handle feature scaling and categorical encoding smoothly.
 
