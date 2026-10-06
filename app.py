@@ -41,7 +41,11 @@ if app_mode == "Student Performance Predictor":
     internet = st.selectbox("Internet Access at Home?", ["yes", "no"], index=0)
     romantic = st.selectbox("In a Romantic Relationship?", ["yes", "no"], index=1)
 
-   # Load the original dataset to get the exact columns and data types
+   # Dynamic sliders for past grades
+    g1 = st.slider("First Period Grade (G1)", 0, 20, 10)
+    g2 = st.slider("Second Period Grade (G2)", 0, 20, 10)
+
+    # Load the original dataset to get the exact columns and data types
     @st.cache_data
     def load_data():
         return pd.read_csv("student_data.csv")
