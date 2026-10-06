@@ -87,12 +87,12 @@ if st.button("Predict My Final Grade"):
     
    
         # Personalized study advice based on prediction
-        if pred_score < 10:
-            st.error("⚠️ **Status: At-Risk.** Recommendation: Consider increasing weekly study hours, reducing absences, and seeking academic support from instructors.")
-        elif pred_score < 14:
-            st.warning("⚡ **Status: Moderate Performance.** Recommendation: Good job, but consistent study routines can push you into the top tier!")
-        else:
-            st.info("🌟 **Status: Excellent Performance!** Keep up your current habits and study schedule.")
+if pred_score < 10:
+    st.error("⚠️ **Status: At-Risk.** Recommendation: Consider increasing weekly study hours, reducing absences, and seeking academic support from instructors.")
+elif pred_score < 14:
+    st.warning("⚡ **Status: Moderate Performance.** Recommendation: Good job, but consistent study routines can push you into the top tier!")
+else:
+    st.info("🌟 **Status: Excellent Performance!** Keep up your current habits and study schedule.")
 
 # ----------------------------------------------------
 # 2. EDUCATOR DASHBOARD PORTAL
