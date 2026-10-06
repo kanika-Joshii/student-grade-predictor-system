@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-import pickle
+import joblib
 
 # Page Configuration
 st.set_page_config(
@@ -9,11 +9,10 @@ st.set_page_config(
     layout="centered"
 )
 
-# Load the trained machine learning pipeline
+# Load the trained machine learning pipeline safely using joblib
 @st.cache_resource
 def load_model():
-    with open('student_grade_pipeline.pkl', 'rb') as file:
-        pipeline = pickle.load(file)
+    pipeline = joblib.load('student_grade_pipeline.pkl')
     return pipeline
 
 pipeline = load_model()
