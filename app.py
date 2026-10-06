@@ -41,46 +41,23 @@ if app_mode == "Student Performance Predictor":
     internet = st.selectbox("Internet Access at Home?", ["yes", "no"], index=0)
     romantic = st.selectbox("In a Romantic Relationship?", ["yes", "no"], index=1)
 
-    # Dynamic sliders for past grades
-    g1 = st.slider("First Period Grade (G1)", 0, 20, 10)
-    g2 = st.slider("Second Period Grade (G2)", 0, 20, 10)
+   # Load the original dataset to get the exact columns and data types
+    @st.cache_data
+    def load_data():
+        return pd.read_csv("student_data.csv")
 
-    # Input DataFrame using all your slider variables
-    input_data = pd.DataFrame({
-        'school': ['GP'],
-        'sex': ['F'],
-        'age': [16],
-        'address': ['U'],
-        'famsize': ['GT3'],
-        'Pstatus': ['T'],
-        'medu': [2],
-        'fedu': [2],
-        'mjob': ['other'],
-        'fjob': ['other'],
-        'reason': ['course'],
-        'guardian': ['mother'],
-        'traveltime': [1],
-        'studytime': [studytime],
-        'failures': [failures],
-        'schoolsup': ['no'],
-        'famsup': ['yes'],
-        'paid': ['no'],
-        'activities': ['yes'],
-        'nursery': ['yes'],
-        'higher': [higher],
-        'internet': [internet],
-        'romantic': [romantic],
-        'famrel': [4],
-        'freetime': [freetime],
-        'goout': [goout],
-        'dalc': [1],
-        'walc': [1],
-        'health': [health],
-        'absences': [absences],
-        'G1': [g1],
-        'G2': [g2]
-    })
-    if st.button("Predict My Final Grade"):
+    df_base = load_data()
+
+    # Take the first row as a complete baseline template and override with user sliders
+    input_data = df_base.drop(columns=['G3'], errors='ignore').iloc[[0]].copy()
+    input_data['studytime'] = studytime
+    input_data['failures'] = failures
+    input_data['absences'] = absences
+    input_data['G1'] = g1
+    input_data['G2'] = g2
+
+    # Predict button
+    if st.button("Predict Final Grade"):
         pred_score = pipeline.predict(input_data)[0]
         st.success(f"Estimated Final Grade: {pred_score:.2f} / 20")
 
