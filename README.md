@@ -2,7 +2,7 @@
 
 An interactive machine learning web application designed for early academic intervention. This system predicts a student's final academic performance (G3) based on behavioral, social, and demographic habits, while providing transparent insights using Explainable AI (SHAP).
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](YOUR_STREAMLIT_URL_HERE)
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://student-grade-predictor-system-pmdrxvgw2fjayurfzzfepv.streamlit.app/)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -10,7 +10,7 @@ An interactive machine learning web application designed for early academic inte
 
 ## 🌟 Live Demo
 Experience the interactive web application live on Streamlit Cloud:  
-👉 **[Click here to view the Live App](YOUR_STREAMLIT_URL_HERE)**
+👉 **[Click here to view the Live App](https://student-grade-predictor-system-pmdrxvgw2fjayurfzzfepv.streamlit.app/)**
 
 ---
 
